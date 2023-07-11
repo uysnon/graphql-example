@@ -1,6 +1,7 @@
 Что работает?
  - unit tests (h2)
- - graphiql (h2), url = http://localhost:8080/graphiql
+ - graphiql (h2), url = http://localhost:8091/graphiql
+ - graphql endpoint (h2), url = http://localhost:8091/graphql
 
 Полезные ссылки:
 1) documentation for \<groupId>org.springframework.graphql\</groupId> \<artifactId>spring-graphql\</artifactId>: https://docs.spring.io/spring-graphql/docs/current/reference/html/

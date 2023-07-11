@@ -41,6 +41,7 @@ type Organization {
 
 extend type Query {
    employees: [Employee]
+   employeesPaged(page: Int!, size: Int!): [Employee]
    employeesWithFilter(filter: EmployeeFilter): [Employee]
    employee(id: ID!): Employee!
 }

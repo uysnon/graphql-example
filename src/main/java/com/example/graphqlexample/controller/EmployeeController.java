@@ -9,6 +9,9 @@ import com.example.graphqlexample.filter.FilterField;
 import com.example.graphqlexample.repository.DepartmentRepository;
 import com.example.graphqlexample.repository.EmployeeRepository;
 import com.example.graphqlexample.repository.OrganizationRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -38,6 +41,11 @@ public class EmployeeController {
     @QueryMapping
     public Employee employee(@Argument Integer id) {
         return employeeRepository.findById(id).orElseThrow();
+    }
+
+    public Page<Employee> employeePaged(@Argument Integer page, @Argument Integer size) {
+        PageRequest pageRequest = PageRequest.of(page, size, Sort.by("id"));
+        return employeeRepository.findAll(pageRequest);
     }
 
     @MutationMapping
